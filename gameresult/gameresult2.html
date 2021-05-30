@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head>
+        <title>레이서스 : 일정&순위 10월29일</title>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/x-icon" href="../logo.ico">
+        <link href="../css/gameresult1.css" rel=stylesheet type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script>
+            $(window).on("scroll", function()
+            {
+		        if ($(window).scrollTop() > 10)
+                {
+			        $("#top").addClass("bg");
+                }
+                else
+                {
+				    $("#top").removeClass("bg");
+                }
+	        }
+            );
+        </script>
+    </head>
+    <body>
+        <div id = wrap>
+            <div id = wrap>
+            <div id = top>
+                <div id = logo>
+                    <a href="../index.html"><img src="../images/logo.png" width=280px height=120px></a>
+                </div>
+                <div id = menu>
+                    <ul>
+                        <li><a href="../racers.html">레이서스</a></li>
+                        <li><a href="../player/player1.html">선수단</a></li>
+                        <li><a href="../game.html">일정 & 순위</a></li>
+                        <li><a href="../gallery.html">갤러리</a></li>
+                        <li><a href="https://www.facebook.com/sinworld14/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCbrwjWJJeUTtlWSPMMHfU6w" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="http://www.gameone.kr/club/?club_idx=26149" target="_blank">GAMEONE</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id = mid>
+                <div id = background>
+                    <img src="../images/f1.jpg" width=1280px height=400px>
+                </div>
+                <div id = midwrap>
+                    <img src="../images/result/result2_1.jpg" width=781 height=185px>
+                    <div class=space><h3><span class=bcolor>타자기록</span></h3></div>
+                    <img src="../images/result/result2_2.jpg" width=793 height=107px>
+                    <div class=space><h3><span class=bcolor>투수기록</span></h3></div>
+                    <img src="../images/result/result2_3.jpg" width=787 height=78px>
+                </div>
+                <a href="../game.html"><img src="../images/result/back.png" width=150px height=150px></a>
+            </div>
+            
+            <div id = bot>
+                <div id = botlogo>
+                    <img src="../images/racerssimbol.jpg" width=150px heigth=150px>
+                </div>
+                <div id = botwrap>
+                    강원도 춘천시 한림대학길 1 (옥천동, 한림대학교)<br>
+                    사회경영2관(담험관) 13514(법학과 과방)<br>
+                    문의전화 010-9983-7130
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

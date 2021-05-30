@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+    <head>
+        <title>레이서스 : 일정&순위</title>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/x-icon" href="logo.ico">
+        <link href="css/game.css" rel=stylesheet type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script>
+            $(window).on("scroll", function()
+            {
+		        if ($(window).scrollTop() > 10)
+                {
+			        $("#top").addClass("bg");
+                }
+                else
+                {
+				    $("#top").removeClass("bg");
+                }
+	        }
+            );
+        </script>
+        <script type="text/javascript">
+            var today = new Date();//오늘 날짜//내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
+            var date = new Date();//today의 Date를 세어주는 역할
+            //경기가 있는 날짜 변수
+            var gameyear = [2017, 2018];
+            var gamemonth = [3, 4, 5, 6, 9, 10, 11];
+            var gameday18 = [19, 2, 30 , 14, 21, 4, 17, 1, 8, 29, 9, 26];
+            var gameday17 = [13, 27, 24, 15, 28, 11, 23, 6, 20];
+
+            function prevCalendar()
+            {   //이전 달
+                today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+                buildCalendar(); //달력 cell 만들어 출력 
+            }
+    
+            function nextCalendar()
+            {   //다음 달
+                today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+                buildCalendar();//달력 cell 만들어 출력
+            }
+            function buildCalendar()
+            {   //현재 달 달력 만들기
+                var doMonth = new Date(today.getFullYear(),today.getMonth(),1);//이번 달의 첫째 날
+                var lastDate = new Date(today.getFullYear(),today.getMonth()+1,0);//이번 달의 마지막 날
+                var tbCalendar = document.getElementById("calendar");//날짜를 찍을 테이블 변수 만듬, 일 까지 다 찍힘
+                var tbCalendarYM = document.getElementById("tbCalendarYM");//테이블에 정확한 날짜 찍는 변수
+                tbCalendarYM.innerHTML = today.getFullYear() + "년 " + (today.getMonth() + 1) + "월";
+    
+                /*while은 이번달이 끝나면 다음달로 넘겨주는 역할*/
+                while (tbCalendar.rows.length > 2)
+                {
+                    tbCalendar.deleteRow(tbCalendar.rows.length-1);
+                }
+                var row = null;
+                row = tbCalendar.insertRow();
+                var cnt = 0;
+                for (i=0; i<doMonth.getDay(); i++)
+                {
+                    /*이번달의 day만큼 돌림*/
+                    cell = row.insertCell();//열 한칸한칸 계속 만들어주는 역할
+                    cnt = cnt + 1;//열의 갯수를 계속 다음으로 위치하게 해주는 역할
+                }
+
+                /*달력 출력*/
+                for (i=1; i<=lastDate.getDate(); i++)
+                { 
+                    //1일부터 마지막 일까지 돌림
+                    cell = row.insertCell();//열 한칸한칸 계속 만들어주는 역할
+                    cell.innerHTML = i;//셀을 1부터 마지막 day까지 HTML 문법에 넣어줌
+                    cnt = cnt + 1;//열의 갯수를 계속 다음으로 위치하게 해주는 역할
+                    if (cnt % 7 == 1)
+                    {   /*일요일 계산*/
+                        cell.innerHTML = "<font color=red>" + i//1번째의 cell에만 색칠
+                    }    
+                    if (cnt%7 == 0)
+                    {   /* 1주일이 7일 이므로 토요일 구하기*/
+                        cell.innerHTML = "<font color=blue>" + i//7번째의 cell에만 색칠
+                        row = calendar.insertRow();//토요일 다음에 올 셀을 추가
+                    }
+                    /*오늘의 날짜*/
+                    if (today.getFullYear() == date.getFullYear()&& today.getMonth() == date.getMonth()&& i == date.getDate())
+                    {
+                        cell.bgColor = "#FAF58C";
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id = wrap>
+            <div id = top>
+                <div id = logo>
+                    <a href="index.html"><img src="images/logo.png" width=280px height=120px></a>
+                </div>
+                <div id = menu>
+                    <ul>
+                        <li><a href="racers.html">레이서스</a></li>
+                        <li><a href="player/player1.html">선수단</a></li>
+                        <li><a href="game.html">일정 & 순위</a></li>
+                        <li><a href="gallery.html">갤러리</a></li>
+                        <li><a href="https://www.facebook.com/sinworld14/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCbrwjWJJeUTtlWSPMMHfU6w" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="http://www.gameone.kr/club/?club_idx=26149" target="_blank">GAMEONE</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id = mid>
+                <div id = background>
+                    <img src="images/f1.jpg" width=1280px height=400px>
+                </div>
+                <div id = gameresult>
+                    <img src="images/result.jpg" width=930px height=607px usemap="#resultimg">
+                    <map name = "#resultimg">
+                        <area shape="rect" href="gameresult/gameresult1.html" coords="0, 35, 930, 85">
+                        <area shape="rect" href="gameresult/gameresult2.html" coords="0, 86, 930, 138">
+                        <area shape="rect" href="gameresult/gameresult3.html" coords="0, 139, 930, 190">
+                        <area shape="rect" href="gameresult/gameresult4.html" coords="0, 191, 930, 241">
+                        <area shape="rect" href="gameresult/gameresult5.html" coords="0, 242, 930, 293">
+                        <area shape="rect" href="gameresult/gameresult6.html" coords="0, 294, 930, 345">
+                        <area shape="rect" href="gameresult/gameresult7.html" coords="0, 346, 930, 397">
+                        <area shape="rect" href="gameresult/gameresult8.html" coords="0, 398, 930, 448">
+                        <area shape="rect" href="gameresult/gameresult9.html" coords="0, 449, 930, 500">
+                        <area shape="rect" href="gameresult/gameresult10.html" coords="0, 501, 930, 552">
+                        <area shape="rect" href="gameresult/gameresult11.html" coords="0, 553, 930, 607">
+                    </map>
+                </div>
+                <div id = midcalendar>
+                    <table id = calendar>
+                        <tr>
+                            <td><label onclick="prevCalendar()"><img src="images/btnleft.jpg" width=20px height=20px></label></td>
+                            <td id="tbCalendarYM" colspan="5">yyyy년 m월</td>
+                            <td><a onclick="nextCalendar()"><img src="images/btnright.jpg" width=20px height=20px></td>
+                        </tr>
+                        <tr>
+                            <td id = sun>일</td>
+                            <td>월</td>
+                            <td>화</td>
+                            <td>수</td>
+                            <td>목</td>
+                            <td>금</td>
+                            <td id = sat>토</td>
+                        </tr>
+                    </table>
+                    <script language="javascript" type="text/javascript">
+                        buildCalendar();
+                    </script>
+                </div>
+                <div id = gamerank>
+                    <img src="images/rank.jpg" width=300px height=200px>
+                </div>
+            </div>
+            
+            <div id = bot>
+                <div id = botlogo>
+                    <img src="images/racerssimbol.jpg" width=150px heigth=150px>
+                </div>
+                <div id = botwrap>
+                    강원도 춘천시 한림대학길 1 (옥천동, 한림대학교)<br>
+                    사회경영2관(담험관) 13514(법학과 과방)<br>
+                    문의전화 010-9983-7130
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

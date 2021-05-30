@@ -1,0 +1,134 @@
+body
+{
+    width : 100%;
+    margin : 0px auto;
+}
+
+#wrap
+{
+    width : 1280px;
+    margin : 0px auto;
+}
+
+#top
+{
+    width : 1280px;
+    height : 200px;
+    position : fixed;
+    z-index : 10;
+}
+
+#top.bg
+{
+    background : #aaa;
+}
+
+#top:hover
+{
+    background-color : #aaa;
+}
+
+#logo
+{
+    width : 280px;
+    height : 120px;
+    padding : 40px 0px 40px 80px;
+    float : left;
+}
+
+#menu
+{
+    text-align : center;
+    width : 850px;
+    margin : 70px 0px;
+    float : left;
+    font-size : 20px;
+    font-weight : bolder;
+}
+
+#menu li
+{
+    display : inline;
+    list-style : none;
+    margin : 0px 20px;
+}
+
+#menu a
+{
+    text-decoration : none;
+    color : white;
+}
+
+menu a:visited
+{
+    color : white;
+}
+
+#menu a:hover
+{
+    color : blue;
+}
+
+#mid
+{
+    text-align : center;
+}
+
+#background
+{
+    width : 1280px;
+    height : 400px;
+}
+
+#midlogo
+{
+    width : 500px;
+    height : 500px;
+    margin : 30px auto;
+}
+
+#midwrap
+{
+    width : 1280px;
+    text-align : center;
+}
+
+.space
+{
+    width : 1280px;
+    padding-top : 80px;
+}
+
+.bcolor
+{
+    color : blue;
+}
+
+#bot
+{
+    width : 1280px;
+    height : 200px;
+    color : white;
+    background-color : #aaa;
+    clear : both;
+    text-align : center;
+    font-weight : normal;
+    font-size : 16px;
+}
+
+#botlogo
+{
+    float : left;
+    width : 150px;
+    height : 150px;
+    margin : 25px 0px 25px 215px;
+}
+
+#botwrap
+{
+    float : left;
+    width : 700px;
+    height : 102px;
+    margin : 30px 0px 25px 0px;
+    padding : 25px 0px;
+}

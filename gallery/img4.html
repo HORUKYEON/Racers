@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+    <head>
+        <title>레이서스 : 갤러리[레이서스 사진]</title>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/x-icon" href="../logo.ico">
+        <link href="../css/gallery2.css" rel=stylesheet type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script>
+            $(window).on("scroll", function()
+            {
+		        if ($(window).scrollTop() > 10)
+                {
+			        $("#top").addClass("bg");
+                }
+                else
+                {
+				    $("#top").removeClass("bg");
+                }
+	        }
+            );
+        </script>
+        <script type="text/javascript">
+            var stmnLEFT = 0; // 오른쪽 여백 
+            var stmnGAP1 = 550; // 위쪽 여백 
+            var stmnGAP2 = 230; // 스크롤시 브라우저 위쪽과 떨어지는 거리 
+            var stmnBASE = 400; // 스크롤 시작위치 
+            var stmnActivateSpeed = 15; //스크롤을 인식하는 딜레이 (숫자가 클수록 느리게 인식)
+            var stmnScrollSpeed = 5; //스크롤 속도 (클수록 느림)
+            var stmnTimer; 
+            
+            function RefreshStaticMenu() { 
+            var stmnStartPoint, stmnEndPoint; 
+            stmnStartPoint = parseInt(document.getElementById('SIDEMENU').style.top, 10); 
+            stmnEndPoint = Math.max(document.documentElement.scrollTop, document.body.scrollTop) + stmnGAP2; 
+            if (stmnEndPoint < stmnGAP1) stmnEndPoint = stmnGAP1; 
+            if (stmnStartPoint != stmnEndPoint) { 
+            stmnScrollAmount = Math.ceil( Math.abs( stmnEndPoint - stmnStartPoint ) / 15 ); 
+            document.getElementById('SIDEMENU').style.top = parseInt(document.getElementById('SIDEMENU').style.top, 10) + ( ( stmnEndPoint<stmnStartPoint ) ? -stmnScrollAmount : stmnScrollAmount ) + 'px'; 
+            stmnRefreshTimer = stmnScrollSpeed; 
+            }
+            stmnTimer = setTimeout("RefreshStaticMenu();", stmnActivateSpeed); 
+            } 
+            function InitializeStaticMenu() {
+            document.getElementById('SIDEMENU').style.right = stmnLEFT + 'px';  //처음에 오른쪽에 위치. 
+            document.getElementById('SIDEMENU').style.top = document.body.scrollTop + stmnBASE + 'px'; 
+            RefreshStaticMenu();
+            }
+        </script>
+    </head>
+    <body onload="InitializeStaticMenu();">
+        <div id = wrap>
+            <div id = top>
+                <div id = logo>
+                    <a href="../index.html"><img src="../images/logo.png" width=280px height=120px></a>
+                </div>
+                <div id = menu>
+                    <ul>
+                        <li><a href="../racers.html">레이서스</a></li>
+                        <li><a href="../player/player1.html">선수단</a></li>
+                        <li><a href="../game.html">일정 & 순위</a></li>
+                        <li><a href="../gallery.html">갤러리</a></li>
+                        <li><a href="https://www.facebook.com/sinworld14/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCbrwjWJJeUTtlWSPMMHfU6w" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="http://www.gameone.kr/club/?club_idx=26149" target="_blank">GAMEONE</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id = mid>
+                <div id = background>
+                    <img src="../images/playground2.jpg" width=1280px height=400px>
+                </div>
+                <div id = midmenu>
+                    <ul>
+                        <li><a href="../gallery.html">레이서스 TV</a></li>
+                        <li id=page><a href="../gallery2.html">레이서스 사진</a></li>
+                    </ul>
+                </div>
+                <div id = midwrap>
+                    <div id = leftwrap>
+                        <h2>9월 17일 WOLVES VS 레이서스</h2>
+                        <a href="../images/gallery/0917/1.jpg" download><img src="../images/gallery/0917/1.jpg" width=800px height=680px></a>
+                        <a href="../images/gallery/0917/2.jpg" download><img src="../images/gallery/0917/2.jpg" width=800px height=680px></a>
+                        <a href="../images/gallery/0917/3.jpg" download><img src="../images/gallery/0917/3.jpg" width=800px height=680px></a>
+                        <a href="../images/gallery/0917/4.jpg" download><img src="../images/gallery/0917/4.jpg" width=800px height=680px></a>
+                    </div>
+                    <div id = SIDEMENU>
+                        <div id = gotop>
+                            <a href="#background">TOP</a>
+                        </div>
+                        <div id = sidebox>
+                            <div class = menubox>
+                                <a href="../gallery2.html">
+                                    <div class = boximg>
+                                        <img src="../images/gallery/0430/1.jpg" width=100px height=80px>
+                                    </div>
+                                    <div class = boxwrap>
+                                        3월 19일 스네이크 VS 레이서스
+                                    </div>
+                                </a>
+                            </div>
+                            <div class = menubox>
+                                <a href="img1.html">
+                                    <div class = boximg>
+                                        <img src="../images/gallery/0430/1.jpg" width=100px height=80px>
+                                    </div>
+                                    <div class = boxwrap>
+                                        4월 30일 WOLVES VS 레이서스
+                                    </div>
+                                </a>
+                            </div>
+                            <div class = menubox>
+                                <a href="img2.html">
+                                    <div class = boximg>
+                                        <img src="../images/gallery/0521/1.jpg" width=100px height=80px>
+                                    </div>
+                                    <div class = boxwrap>
+                                        5월 21일 루키즈 VS 레이서스
+                                    </div>
+                                </a>
+                            </div>
+                            <div class = menubox>
+                                <a href="img3.html">
+                                    <div class = boximg>
+                                        <img src="../images/gallery/0604/1.jpg" width=100px height=80px>
+                                    </div>
+                                    <div class = boxwrap>
+                                        6월 04일 스네이크 VS 레이서스
+                                    </div>
+                                </a>
+                            </div>
+                            <div class = menubox>
+                                <a href="img5.html">
+                                    <div class = boximg>
+                                        <img src="../images/gallery/1001/1.jpg" width=100px height=80px>
+                                    </div>
+                                    <div class = boxwrap>
+                                        10월 01일 올드보이즈 VS 레이서스
+                                    </div>
+                                </a>
+                            </div>
+                            <div class = menubox>
+                                <a href="img6.html">
+                                    <div class = boximg>
+                                        <img src="../images/gallery/1008/1.jpg" width=100px height=80px>
+                                    </div>
+                                    <div class = boxwrap>
+                                        10월 08일 루키즈 VS 레이서스
+                                    </div>
+                                </a>
+                            </div>
+                            <div class = menubox>
+                                <a href="img7.html">
+                                    <div class = boximg>
+                                        <img src="../images/gallery/1029/1.jpg" width=100px height=80px>
+                                    </div>
+                                    <div class = boxwrap>
+                                        10월 29일 엉클스 VS 레이서스
+                                    </div>
+                                </a>
+                            </div>
+                            <div class = menubox>
+                                <a href="img8.html">
+                                    <div class = boximg>
+                                        <img src="../images/gallery/1112ura/1.jpg" width=100px height=80px>
+                                    </div>
+                                    <div class = boxwrap>
+                                        11월 12일 유라 VS 레이서스(축구)
+                                    </div>
+                                </a>
+                            </div>
+                            <div class = menubox>
+                                <a href="img9.html">
+                                    <div class = boximg>
+                                        <img src="../images/gallery/1119/1.jpg" width=100px height=80px>
+                                    </div>
+                                    <div class = boxwrap>
+                                        11월 19일 올드보이즈 VS 레이서스(준결승)
+                                    </div>
+                                </a>
+                            </div>
+                            <div class = menubox>
+                                <a href="img10.html">
+                                    <div class = boximg>
+                                        <img src="../images/gallery/1126/8.jpg" width=100px height=80px>
+                                    </div>
+                                    <div class = boxwrap>
+                                        11월 26일 스네이크 VS 레이서스(결승)
+                                    </div>
+                                </a>
+                            </div>
+                            <div class = menubox>
+                                <a href="img11.html">
+                                    <div class = boximg>
+                                        <img src="../images/gallery/last/1.jpg" width=100px height=80px>
+                                    </div>
+                                    <div class = boxwrap>
+                                        자체 시상식/퇴임식/취임식/은퇴식
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <div>
+
+            <div id = bot>
+                <div id = botlogo>
+                    <img src="../images/racerssimbol.jpg" width=150px heigth=150px>
+                </div>
+                <div id = botwrap>
+                    강원도 춘천시 한림대학길 1 (옥천동, 한림대학교)<br>
+                    사회경영2관(담험관) 13514(법학과 과방)<br>
+                    문의전화 010-9983-7130
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
